@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">K22411CASampleProject</string>
+    <string name="title_login_username">User name:</string>
+    <string name="title_login_username_hint">Enter your username</string>
+    <string name="title_login_pw">Password:</string>
+    <string name="title_login_save_info">Save log in information</string>
+    <string name="title_login_pw_hint">Enter your password</string>
+    <string name="btn_login">Log in</string>
+    <string name="title_confirm_exit">Confirm Exit</string>
+    <string name="title_confirm_exit_message">Are you sure you want to exit</string>
+    <string name="title_confirm_exit_yes">Yes</string>
+    <string name="title_confirm_exit_no">No</string>
+    <string name="title_employee">Employee</string>
+    <string name="title_customer">Customer</string>
+    <string name="title_employee_healthcare">Healthcare</string>
+    <string name="title_employee_salary">Salary</string>
+    <string name="title_activity_employee_healthcare">Emmployee Healthcare</string>
+    <string name="title_height">Height:</string>
+    <string name="title_weight">Weight:</string>
+    <string name="title_calculate">Calculate</string>
+    <string name="title_close">"Close "</string>
+    <string name="title_clear">Clear</string>
+    <string name="title_employee_list">Employee List</string>
+    <string name="title_employee_name">Nguyễn Thị Thu</string>
+    <string name="title_employee_title">Developer</string>
+    <string name="title_employee_data">Employee Data</string>
+    <string name="title_employee_bank">Employee Bank</string>
+    <string name="txt_employee_content">Good employee management requires understanding each individual\'s strengths and weaknesses and providing the necessary support to help them succeed. A well-managed workforce is not only productive but also engaged and motivated, leading to higher job satisfaction and better retention rates. Furthermore, creating an inclusive and supportive work environment fosters collaboration and innovation, contributing to the overall success of the organization.</string>
+    <string name="txt_em_content">Furthermore, maintaining open lines of communication is crucial in managing employee relations. Transparent communication fosters trust and helps address any concerns before they escalate. Encouraging a healthy work-life balance, offering flexibility, and ensuring that employees\' well-being is prioritized also play a big part in keeping morale high and turnover low.\n\nWhen employees feel supported and aligned with the company\'s vision, they are more likely to stay engaged, perform better, and contribute positively to the workplace environment. In today’s competitive job market, organizations that focus on comprehensive and thoughtful employee management are more likely to attract top talent and maintain a productive, happy workforce.</string>
+</resources>

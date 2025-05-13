@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">K22411CASampleProject</string>
+    <string name="title_login_username">Tên người dùng:</string>
+    <string name="title_login_username_hint">Nhập tên người dùng của bạn</string>
+    <string name="title_login_pw">Mật khẩu:</string>
+    <string name="title_login_save_info">Lưu thông tin đăng nhập</string>
+    <string name="title_login_pw_hint">Nhập mật khẩu</string>
+    <string name="btn_login">Đăng nhập</string>
+    <string name="title_confirm_exit">Xác nhận thoát</string>
+    <string name="title_confirm_exit_message">Bạn chắc chắn muốn thoát?</string>
+    <string name="title_confirm_exit_yes">Có</string>
+    <string name="title_confirm_exit_no">Không</string>
+</resources>
