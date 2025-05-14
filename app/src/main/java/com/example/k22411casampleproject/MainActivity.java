@@ -16,6 +16,14 @@ public class MainActivity extends AppCompatActivity {
     ImageView imgEmployee;
     TextView txtEmployee;
 
+    ImageView imgCustomer;
+    TextView txtCustomer;
+
+    ImageView imgProduct;
+    TextView txtProduct;
+
+    ImageView imgCategory;
+    TextView txtCategory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,33 +38,49 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
     }
-    private void addViews(){
-        imgEmployee=findViewById(R.id.imgEmployee);
-        txtEmployee=findViewById(R.id.txtEmployee);
-    }
-    private void addEvents() {
-        imgEmployee.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //goi code mo man hinh quan tri nhan su
-                openEmployeeManagementActivity();
-            }
-        });
-        txtEmployee.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
+    private void addViews() {
+        imgEmployee = findViewById(R.id.imgEmployee);
+        txtEmployee = findViewById(R.id.txtEmployee);
+        imgCustomer = findViewById(R.id.imgCustomer);
+        txtCustomer = findViewById(R.id.txtCustomer);
+        imgProduct = findViewById(R.id.imgProduct);
+        txtProduct = findViewById(R.id.txtProduct);
+        imgCategory = findViewById(R.id.imgCategory);
+        txtCategory = findViewById(R.id.txtCategory);
+    }
+
+    private void addEvents() {
+        imgEmployee.setOnClickListener(view -> openEmployeeManagementActivity());
+        txtEmployee.setOnClickListener(view -> openEmployeeManagementActivity());
+
+        imgCustomer.setOnClickListener(view -> openCustomerManagementActivity());
+        txtCustomer.setOnClickListener(view -> openCustomerManagementActivity());
+
+        imgProduct.setOnClickListener(view -> openProductManagementActivity());
+        txtProduct.setOnClickListener(view -> openProductManagementActivity());
+
+        imgCategory.setOnClickListener(view -> openCategoryManagementActivity());
+        txtCategory.setOnClickListener(view -> openCategoryManagementActivity());
     }
 
     private void openEmployeeManagementActivity() {
-        Intent intent=new Intent(MainActivity.this, EmployeeManagementActivity.class);
+        Intent intent = new Intent(MainActivity.this, EmployeeManagementActivity.class);
         startActivity(intent);
     }
 
-    public void openEmployeeManagementActivity(View view) {
-        Intent intent=new Intent(MainActivity.this, EmployeeManagementActivity.class);
+    private void openProductManagementActivity() {
+        Intent intent = new Intent(MainActivity.this, ProductManagementActivity.class);
+        startActivity(intent);
+    }
+
+    private void openCategoryManagementActivity() {
+        Intent intent = new Intent(MainActivity.this, CategoryManagementActivity.class);
+        startActivity(intent);
+    }
+
+    private void openCustomerManagementActivity() {
+        Intent intent = new Intent(MainActivity.this, CustomerManagementActivity.class);
         startActivity(intent);
     }
 }
