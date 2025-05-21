@@ -1,5 +1,6 @@
 package com.example.k22411casampleproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -56,7 +57,9 @@ public class CustomerManagementActivity extends AppCompatActivity {
     }
 
     private void openCustomerDetailActivity(Customer c) {
-
+        Intent intent=new Intent(CustomerManagementActivity.this,CustomerDetailActivity.class);
+        intent.putExtra("Selected_Customer",c);
+        startActivity(intent);
     }
 
     private void addViews() {

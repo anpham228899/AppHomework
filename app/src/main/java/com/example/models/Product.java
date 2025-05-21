@@ -9,11 +9,9 @@ public class Product implements Serializable {
     private String name;
     private int quantity;
     private double price;
-    private int image_id;
     private int cateid;
-
-    public Product(int id, String an, String number, String s, String string) {
-    }
+    private String description;
+    private int image_id;
 
     public Product(int id, String name, int quantity, double price, int cateid) {
         this.id = id;
@@ -23,7 +21,18 @@ public class Product implements Serializable {
         this.cateid = cateid;
     }
 
-    public Product(int i) {
+    public Product(int id, String name, int quantity, double price, int cateid, String description, int image_id) {
+        this.id = id;
+        this.name = name;
+        this.quantity = quantity;
+        this.price = price;
+        this.cateid = cateid;
+        this.description = description;
+        this.image_id = image_id;
+    }
+
+    public Product(int id) {
+        this.id = id;
     }
 
     public int getId() {
@@ -66,11 +75,25 @@ public class Product implements Serializable {
         this.cateid = cateid;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getImage_id() {
+        return image_id;
+    }
+
+    public void setImage_id(int image_id) {
+        this.image_id = image_id;
+    }
+
     @NonNull
     @Override
     public String toString() {
-        String info = id + "-" + name + "\n" + quantity + "-" + price + "\n" + cateid;
-        return info;
+        return id + " - " + name + "\nQty: " + quantity + " | $" + price + "\nCategoryID: " + cateid;
     }
-
 }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="edtProductBrand" type="id" />
+    <item name="imgProductPreview" type="id" />
+    <item name="btnUploadImage" type="id" />
+    <item name="edtProductDescription" type="id" />
+</resources>
