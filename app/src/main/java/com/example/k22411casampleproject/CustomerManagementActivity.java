@@ -1,10 +1,17 @@
 package com.example.k22411casampleproject;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -18,6 +25,11 @@ public class CustomerManagementActivity extends AppCompatActivity {
     ArrayAdapter<Customer> adapter;
     ListCustomer lc=new ListCustomer();
 
+    MenuItem menu_new_customer;
+    MenuItem menu_broadcast_advertising;
+    MenuItem menu_help;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +42,21 @@ public class CustomerManagementActivity extends AppCompatActivity {
         });
 
         addViews();
+        addEvents();
+    }
+
+    private void addEvents() {
+        lvCustomer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Customer c=adapter.getItem(i);
+                openCustomerDetailActivity(c);
+            }
+        });
+    }
+
+    private void openCustomerDetailActivity(Customer c) {
+
     }
 
     private void addViews() {
@@ -38,5 +65,34 @@ public class CustomerManagementActivity extends AppCompatActivity {
         lc.generate_sample_dataset_customer();
         adapter.addAll(lc.getCustomers());
         lvCustomer.setAdapter(adapter);
+        menu_new_customer=findViewById(R.id.menu_new_customer);
+        menu_broadcast_advertising=findViewById(R.id.menu_broadcast_advertising);
+        menu_help=findViewById(R.id.menu_help);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.option_menu_customer, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        if(item.getItemId()==R.id.menu_new_customer){
+            Toast.makeText(this, "Create new customer", Toast.LENGTH_LONG).show();
+            openNewCustomerActivity();
+
+        }
+        else if (item.getItemId()==R.id.menu_broadcast_advertising){
+            Toast.makeText(this, "Broadcast advertising", Toast.LENGTH_LONG).show();
+        }
+        else if (item.getItemId()==R.id.menu_help){
+            Toast.makeText(this, "Help", Toast.LENGTH_LONG).show();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void openNewCustomerActivity() {
+
     }
 }

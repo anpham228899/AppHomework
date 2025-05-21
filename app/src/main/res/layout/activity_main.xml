@@ -34,7 +34,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/title_employee"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="#4CAF50"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -56,7 +58,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/title_customer"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="#FF9800"
+                    android:textStyle="bold" />
             </LinearLayout>
 
         </TableRow>
@@ -71,19 +75,21 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imgCategory"
+                    android:id="@+id/imgProduct"
                     android:layout_width="168dp"
                     android:layout_height="126dp"
                     android:layout_weight="1"
                     app:srcCompat="@mipmap/ic_logo_cate" />
 
                 <TextView
-                    android:id="@+id/txtCategory"
+                    android:id="@+id/txtProduct"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/title_category"
-                    android:textAlignment="center" />
+                    android:text="@string/title_product"
+                    android:textAlignment="center"
+                    android:textColor="#3F51B5"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -93,19 +99,21 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imgProduct"
+                    android:id="@+id/imgAdvancedProduct"
                     android:layout_width="match_parent"
                     android:layout_height="122dp"
                     android:layout_weight="1"
                     app:srcCompat="@mipmap/ic_logo_product" />
 
                 <TextView
-                    android:id="@+id/txtProduct"
+                    android:id="@+id/txtAdvancedProduct"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/title_product"
-                    android:textAlignment="center" />
+                    android:text="@string/title_advanced_product"
+                    android:textAlignment="center"
+                    android:textColor="#E91E63"
+                    android:textStyle="bold" />
             </LinearLayout>
 
         </TableRow>

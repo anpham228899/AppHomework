@@ -22,9 +22,6 @@ public class MainActivity extends AppCompatActivity {
     ImageView imgProduct;
     TextView txtProduct;
 
-    ImageView imgCategory;
-    TextView txtCategory;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,12 +39,13 @@ public class MainActivity extends AppCompatActivity {
     private void addViews() {
         imgEmployee = findViewById(R.id.imgEmployee);
         txtEmployee = findViewById(R.id.txtEmployee);
+
         imgCustomer = findViewById(R.id.imgCustomer);
         txtCustomer = findViewById(R.id.txtCustomer);
+
         imgProduct = findViewById(R.id.imgProduct);
         txtProduct = findViewById(R.id.txtProduct);
-        imgCategory = findViewById(R.id.imgCategory);
-        txtCategory = findViewById(R.id.txtCategory);
+
     }
 
     private void addEvents() {
@@ -59,9 +57,6 @@ public class MainActivity extends AppCompatActivity {
 
         imgProduct.setOnClickListener(view -> openProductManagementActivity());
         txtProduct.setOnClickListener(view -> openProductManagementActivity());
-
-        imgCategory.setOnClickListener(view -> openCategoryManagementActivity());
-        txtCategory.setOnClickListener(view -> openCategoryManagementActivity());
     }
 
     private void openEmployeeManagementActivity() {
@@ -71,11 +66,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void openProductManagementActivity() {
         Intent intent = new Intent(MainActivity.this, ProductManagementActivity.class);
-        startActivity(intent);
-    }
-
-    private void openCategoryManagementActivity() {
-        Intent intent = new Intent(MainActivity.this, CategoryManagementActivity.class);
         startActivity(intent);
     }
 

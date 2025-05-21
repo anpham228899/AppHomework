@@ -29,4 +29,8 @@
     <string name="txt_em_content">Furthermore, maintaining open lines of communication is crucial in managing employee relations. Transparent communication fosters trust and helps address any concerns before they escalate. Encouraging a healthy work-life balance, offering flexibility, and ensuring that employees\' well-being is prioritized also play a big part in keeping morale high and turnover low.\n\nWhen employees feel supported and aligned with the company\'s vision, they are more likely to stay engaged, perform better, and contribute positively to the workplace environment. In today’s competitive job market, organizations that focus on comprehensive and thoughtful employee management are more likely to attract top talent and maintain a productive, happy workforce.</string>
     <string name="title_product">Product</string>
     <string name="title_category">Category</string>
+    <string name="title_advanced_product">Advanced Product</string>
+    <string name="title_create_new_customer">New Customer</string>
+    <string name="title_broadcast_advertising">Broacasr adverting</string>
+    <string name="help">Help</string>
 </resources>

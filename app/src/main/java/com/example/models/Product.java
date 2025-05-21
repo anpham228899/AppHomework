@@ -9,6 +9,7 @@ public class Product implements Serializable {
     private String name;
     private int quantity;
     private double price;
+    private int image_id;
     private int cateid;
 
     public Product(int id, String an, String number, String s, String string) {
