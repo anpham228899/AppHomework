@@ -35,17 +35,13 @@ public class ProductManagementActivity extends AppCompatActivity {
 
     ListCategory listCategory;
 
-    MenuItem menu_create_new_product;
-    MenuItem menu_edit_product_list;
-    MenuItem menu_help;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_product_management);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(android.R.id.content), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
@@ -71,10 +67,6 @@ public class ProductManagementActivity extends AppCompatActivity {
 
         adapterCategory.addAll(listCategory.getCategories());
         adapterCategory.notifyDataSetChanged();
-
-        menu_create_new_product = findViewById(R.id.menu_create_new_product);
-        menu_edit_product_list = findViewById(R.id.menu_edit_product_list);
-        menu_help = findViewById(R.id.menu_help);
     }
 
     private void addEvents() {
@@ -132,5 +124,6 @@ public class ProductManagementActivity extends AppCompatActivity {
     }
 
     private void openNewProductActivity() {
+
     }
 }

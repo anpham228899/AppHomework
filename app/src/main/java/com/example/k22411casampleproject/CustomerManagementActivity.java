@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -30,13 +31,15 @@ public class CustomerManagementActivity extends AppCompatActivity {
     MenuItem menu_broadcast_advertising;
     MenuItem menu_help;
 
+    final int ID_CREATE_NEW_CUSTOMER=1;
+    final int ID_UPDATE_CUSTOMER=2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_customer_management);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.lvProduct), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
@@ -96,6 +99,26 @@ public class CustomerManagementActivity extends AppCompatActivity {
     }
 
     private void openNewCustomerActivity() {
+        Intent intent=new Intent(CustomerManagementActivity.this,CustomerDetailActivity.class);
+        startActivityForResult(intent, ID_CREATE_NEW_CUSTOMER);
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==ID_CREATE_NEW_CUSTOMER && resultCode==1000){
+            Customer c=(Customer) data.getSerializableExtra("New_Customer");
+            process_save_customer(c);
+        }
+    }
+
+    private void process_save_customer(Customer c) {
+        boolean result=lc.isExisting(c);
+        if (result==true){
+            return;
+        }
+        lc.addCustomer(c);
+        adapter.clear();
+        adapter.addAll(lc.getCustomers());
     }
 }

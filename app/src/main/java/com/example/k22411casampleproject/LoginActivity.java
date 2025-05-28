@@ -2,7 +2,6 @@ package com.example.k22411casampleproject;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
@@ -19,8 +18,6 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.connectors.EmployeeConnector;
 import com.example.models.Employee;
 
-import java.lang.reflect.Array;
-
 public class LoginActivity extends AppCompatActivity {
 
     EditText edtUserName;
@@ -34,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         addViews();
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.lvProduct), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;

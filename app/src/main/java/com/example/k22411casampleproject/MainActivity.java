@@ -2,7 +2,6 @@ package com.example.k22411casampleproject;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
@@ -22,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
     ImageView imgProduct;
     TextView txtProduct;
 
+    ImageView imgAdvancedProduct;
+    TextView txtAdvancedProduct;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         addViews();
         addEvents();
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.lvProduct), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
@@ -46,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
         imgProduct = findViewById(R.id.imgProduct);
         txtProduct = findViewById(R.id.txtProduct);
 
+        imgAdvancedProduct = findViewById(R.id.imgAdvancedProduct);
+        txtAdvancedProduct = findViewById(R.id.txtAdvancedProduct);
+
     }
 
     private void addEvents() {
@@ -57,6 +62,14 @@ public class MainActivity extends AppCompatActivity {
 
         imgProduct.setOnClickListener(view -> openProductManagementActivity());
         txtProduct.setOnClickListener(view -> openProductManagementActivity());
+
+        imgAdvancedProduct.setOnClickListener(view -> openAdvancedProductManagementActivity());
+        txtAdvancedProduct.setOnClickListener(view -> openAdvancedProductManagementActivity());
+    }
+
+    private void openAdvancedProductManagementActivity() {
+        Intent intent = new Intent(MainActivity.this, AdvancedProductManagementActivity.class);
+        startActivity(intent);
     }
 
     private void openEmployeeManagementActivity() {
