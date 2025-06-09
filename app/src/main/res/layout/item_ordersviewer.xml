@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="?android:attr/selectableItemBackground"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:background="@android:color/white"
+        android:layout_margin="16dp"
+        android:elevation="4dp"
+        android:layout_gravity="center"
+        android:backgroundTint="#FFFFFF">
+
+        <TextView
+            android:id="@+id/txtOrderCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Order Code: #12345"
+            android:textSize="18sp"
+            android:textColor="#212121"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/txtOrderDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Order Date: 2025-06-09"
+            android:textSize="16sp"
+            android:textColor="#616161"
+            android:paddingBottom="12dp" />
+        <TextView
+            android:id="@+id/txtEmployeeName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Employee: Jane Doe"
+            android:textSize="16sp"
+            android:textColor="#424242"
+            android:paddingBottom="12dp" />
+
+        <TextView
+            android:id="@+id/txtCustomerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Customer: John Smith"
+            android:textSize="16sp"
+            android:textColor="#424242"
+            android:paddingBottom="12dp" />
+
+        <TextView
+            android:id="@+id/txtTotalValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total: 1,200,000 VND"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="#D32F2F"
+            android:paddingBottom="8dp" />
+    </LinearLayout>
+</LinearLayout>

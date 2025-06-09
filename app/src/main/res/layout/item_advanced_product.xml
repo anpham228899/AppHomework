@@ -11,7 +11,7 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/imgProduct"
+            android:id="@+id/imgPaymentMethod"
             android:layout_width="136dp"
             android:layout_height="105dp"
             app:srcCompat="@mipmap/coca" />
