@@ -2,6 +2,7 @@ package com.example.k22411casampleproject;
 
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
@@ -54,7 +55,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void setupBroadcastReceiver() {
+        networkReceiver=new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
 
+            }
+        };
     }
 
     private void addViews() {
