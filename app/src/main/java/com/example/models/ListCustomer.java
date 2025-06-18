@@ -1,5 +1,9 @@
 package com.example.models;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class ListCustomer {
@@ -9,31 +13,78 @@ public class ListCustomer {
         customers = new ArrayList<>();
     }
 
-    public void addCustomer(Customer c) {
-        customers.add(c);
+    public ArrayList<Customer> getCustomers() {
+        return customers;
     }
-    public ArrayList<Customer> getCustomers() {return customers;}
-    public void setCustomers(ArrayList<Customer> customers) {this.customers = customers;}
-    public void generate_sample_dataset_customer() {
-        addCustomer(new Customer(1, "An", "An@gmail.com", "09123456", "anpt14", "2702"));
-        addCustomer(new Customer(2, "Binh", "Binh@gmail.com", "0988888", "binhpt14", "2710"));
-        addCustomer(new Customer(3, "Chi", "Chi@gmail.com", "012938435", "chipt14", "2709"));
-        addCustomer(new Customer(4, "Dung", "Dung@gmail.com", "0912487245", "dungpt14", "2708"));
-        addCustomer(new Customer(5, "Yen", "Yen@gmail.com", "0913487125", "yenpt14", "2707"));
-        addCustomer(new Customer(6, "Phuong", "Phuong@gmail.com", "0912478443", "phuongpt14", "2706"));
-        addCustomer(new Customer(7, "Hien", "Hien@gmail.com", "0913457144", "hienpt14", "2705"));
-        addCustomer(new Customer(8, "Kien", "Kien@gmail.com", "09138880", "kienpt14", "2704"));
-        addCustomer(new Customer(9, "Long", "Long@gmail.com", "09131118888", "longpt14", "2703"));
-        addCustomer(new Customer(10, "Minh", "Minh@gmail.com", "09138822288", "minhpt14", "1410"));
+
+    public void setCustomers(ArrayList<Customer> customers) {
+        this.customers = customers;
     }
-    public boolean isExisting(Customer c){
-        for (Customer cus : customers) {
-            if (cus.getId()==c.getId() ||
-                    cus.getEmail().equals(c.getEmail()) ||
-                    cus.getPhone().equals(c.getPhone()) ||
-                    cus.getUsername().equals(c.getUsername()))
+
+    public boolean isExist(Customer c) {
+        for (Customer existingCustomer : customers) {
+            if (existingCustomer.getId() == c.getId() ||
+                    existingCustomer.getPhone().equals(c.getPhone()) ||
+                    existingCustomer.getEmail().equalsIgnoreCase(c.getEmail()) ||
+                    existingCustomer.getUsername().equalsIgnoreCase(c.getUsername())) {
                 return true;
+            }
         }
         return false;
+    }
+
+    public void getAllCustomers(SQLiteDatabase database) {
+        customers.clear();
+
+        // Step 1: Print all table names in the database
+        Cursor tableCursor = database.rawQuery(
+                "SELECT name FROM sqlite_master WHERE type='table'", null);
+        ArrayList<String> tableNames = new ArrayList<>();
+        if (tableCursor.moveToFirst()) {
+            do {
+                String tableName = tableCursor.getString(0);
+                tableNames.add(tableName);
+            } while (tableCursor.moveToNext());
+        }
+        tableCursor.close();
+        Log.d("DB_TABLES", "Tables: " + tableNames);
+
+        // Step 2: Check if "Customer" table exists
+        if (!tableNames.contains("Customer")) {
+            Log.e("DB_TABLES", "Table 'Customer' does NOT exist! Existing tables: " + tableNames);
+            return;
+        }
+
+        // Step 3: Print columns of "Customer" table
+        Cursor colCursor = database.rawQuery("PRAGMA table_info(Customer)", null);
+        StringBuilder colInfo = new StringBuilder();
+        while (colCursor.moveToNext()) {
+            colInfo.append(colCursor.getString(colCursor.getColumnIndexOrThrow("name"))).append(", ");
+        }
+        colCursor.close();
+        Log.d("CUSTOMER_COL", "Columns in Customer: " + colInfo.toString());
+
+        // Step 4: Safe to query all customers
+        Cursor cursor = database.rawQuery("SELECT * FROM Customers", null);
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(0);
+            String name = cursor.getString(1);
+            String phone = cursor.getString(2);
+            String email = cursor.getString(3);
+            String username = cursor.getString(4);
+            String password = cursor.getString(5);
+            int saveInfor = cursor.getInt(6);
+
+            Customer customer = new Customer();
+            customer.setId(id);
+            customer.setName(name);
+            customer.setPhone(phone);
+            customer.setEmail(email);
+            customer.setUsername(username);
+            customer.setPassword(password);
+            // customer.setSaveInfor(saveInfor == 1);
+            customers.add(customer);
+        }
+        cursor.close();
     }
 }
